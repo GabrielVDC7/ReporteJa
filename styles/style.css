@@ -1,0 +1,45 @@
+body { background-color: #f8f9fa; }
+.login-container { max-width: 400px; margin: 80px auto; text-align: center; }
+.status-pendente { color: red; font-weight: bold; }
+.status-andamento { color: orange; font-weight: bold; }
+.status-resolvido { color: green; font-weight: bold; }
+footer { margin-top: 50px; text-align: center; font-size: 0.9rem; color: #888; }
+
+.modal {
+    background-color: azure;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.open {
+    opacity: 1;
+    z-index: 999;   
+}
+
+.modal-inner{
+    background-color: azure;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    padding: 15px 25px;
+    text-align: center;
+    width: 380px;
+}
+
+.modal-inner h2{
+    margin: 0;
+}
+
+.modal-inner p{
+    line-height: 24px;
+    margin: 10px 0;
+}
+
