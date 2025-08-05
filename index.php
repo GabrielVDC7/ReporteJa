@@ -43,42 +43,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Reporte Já</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Reporte Já</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/entrar.css">
 </head>
 <body>
 
-<div class="login-container">
-  <img src="assets/img/logo.jpeg" alt="Logo do sistema Reporte Já" class="img-fluid mb-4" style="max-height: 100px;">
-  <h2>Bem-vindo(a) ao Reporte Já – Área Administrativa</h2>
-  <p class="mb-4">Acesse sua conta para gerenciar as ocorrências de manutenção.</p>
+    <div class="main-wrapper">
+        <div class="welcome-section">
+            <img src="./assets/img/logo2.jfif" alt="Logo do sistema Reporte Já" class="logo-img">
+            <p class="welcome-title">Bem-vindo(a) ao Reporte Já – Área Administrativa</p>
+            <p class="welcome-description">Acesse sua conta para gerenciar as ocorrências de manutenção.</p>
+        </div>
 
-  <form method="POST" action="">
-    <div class="mb-3 text-start">
-      <label class="form-label">E-mail</label>
-      <input type="email" name='email' class="form-control" placeholder="Digite seu e-mail">
+        <div class="login-section">
+            <h3 class="login-title">Login</h3>
+
+            <form class="login-form" method="POST" action="">
+                <div class="form-group">
+                    <label for="email">Seu e-mail</label>
+                    <input type="email" name='email' id="email" class="form-control" placeholder="exemplo333@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Sua senha</label>
+                    <input type="password" name='senha' id="password" class="form-control" placeholder="1234667">
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Esqueceu a sua senha?</a>
+                </div>
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+        </div>
     </div>
-    <div class="mb-3 text-start">
-      <label class="form-label">Senha</label>
-      <input type="password" name='senha'  class="form-control" placeholder="Digite sua senha">
-    </div>
-    <button type="submit" class="btn btn-primary w-100">Entrar</button>
-    <div class="mt-2">
-      <a href="#">Esqueceu sua senha?</a>
-    </div>
-  </form>
-</div>
 
-<footer>
-  © 2025 Reporte Já. Todos os direitos reservados.
-</footer>
-
-<hr class="my-5">
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="./scripts/Entrar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

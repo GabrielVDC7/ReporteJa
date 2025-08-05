@@ -1,83 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Reporte Já</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Ocorrências - Reporte Já</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/painel.css">
 </head>
 <body>
 
-<div class="container">
-  <h2>Painel de Ocorrências</h2>
-  <p>Visualize, filtre e gerencie todas as ocorrências registradas.</p>
+    <!-- Cabeçalho Fixo da Página -->
+    <header class="page-header">
+        <h1 class="page-title">Painel de Ocorrências</h1>
+    </header>
 
-  <div class="btn-group mb-3" id="btn-group"role="group">
-    <button class="btn btn-secondary" onclick="filterSelection('all')">Todos</button>
-    <button class="btn btn-danger" onclick="filterSelection('Pendentes')">Pendentes</button>
-    <button class="btn btn-warning" onclick="filterSelection('Andamento')">Em Andamento</button>
-    <button class="btn btn-success" onclick="filterSelection('Concluidos')">Concluídos</button>
-  </div>
+    <!-- Conteúdo Principal Rolável -->
+    <main class="main-content">
+        <div class="container-fluid content-card">
+            <p class="page-description">Visualize, filtre e gerencie todas as ocorrências registradas.</p>
 
-  <table class="table table-bordered">
-    <thead class="table-dark">
-      <tr>
-        <th>Título da Ocorrência</th>
-        <th>Localização</th>
-        <th>Status</th>
-        <th>Data de Registro</th>
-        <th>Responsável</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="status pendente">
-        <td>Lâmpada Queimada no Corredor</td>
-        <td>Bloco A - 3º Andar</td>
-        <td>Pendente</td>
-        <td>25/07/2025</td>
-        <td>Não atribuído</td>
-        <td><button id="detalhes" class="btn btn-primary btn-sm">Ver Detalhes</button></td>
-      </tr>
-      <tr class="status andamento">
-        <td>Vazamento no Banheiro Social</td>
-        <td>Ap. 101</td>
-        <td>Em Andamento</td>
-        <td>24/07/2025</td>
-        <td>Técnico João</td>
-        <td><button  id="detalhes" class="btn btn-primary btn-sm">Ver Detalhes</button></td>
-      </tr>
-      <tr class="status concluido">
-        <td>Portão da Garagem Travado</td>
-        <td>Entrada Principal</td>
-        <td>Concluído</td>
-        <td>23/07/2025</td>
-        <td>Técnico Marcos</td>
-        <td><button id="detalhes" class="btn btn-primary btn-sm">Ver Detalhes</button></td>
-      </tr>
-    </tbody>
-  </table>
+            <div class="btn-group mb-4" id="btn-group" role="group">
+                <button class="btn btn-filter active" onclick="filterSelection('all')">Todos</button>
+                <button class="btn btn-filter" onclick="filterSelection('pendente')">Pendentes</button>
+                <button class="btn btn-filter" onclick="filterSelection('andamento')">Em Andamento</button>
+                <button class="btn btn-filter" onclick="filterSelection('concluido')">Concluídos</button>
+            </div>
 
-<!-- Modal-->
-<div class="modal" id="modal">
-  <div class="modal-inner">
-    <h2>Detalhes</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-      Accusantium earum alias maiores, eaque aliquid impedit, 
-      nisi illum, veritatis labore in totam officiis adipisci consequatur. 
-      Nulla, velit! Harum commodi vitae molestiae.
-    </p>
-    <button id="closeModal">Fechar</button>
-  </div>
-</div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Título da Ocorrência</th>
+                            <th>Localização</th>
+                            <th>Status</th>
+                            <th>Data de Registro</th>
+                            <th>Responsável</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="status pendente">
+                            <td data-label="Título da Ocorrência">Lâmpada Queimada no Corredor</td>
+                            <td data-label="Localização">Bloco A - 3º Andar</td>
+                            <td data-label="Status">Pendente</td>
+                            <td data-label="Data de Registro">25/07/2025</td>
+                            <td data-label="Responsável">Não atribuído</td>
+                            <td data-label="Ações"><button class="btn btn-details btn-sm">Ver Detalhes</button></td>
+                        </tr>
+                        <tr class="status andamento">
+                            <td data-label="Título da Ocorrência">Vazamento no Banheiro Social</td>
+                            <td data-label="Localização">Ap. 101</td>
+                            <td data-label="Status">Em Andamento</td>
+                            <td data-label="Data de Registro">24/07/2025</td>
+                            <td data-label="Responsável">Técnico João</td>
+                            <td data-label="Ações"><button class="btn btn-details btn-sm">Ver Detalhes</button></td>
+                        </tr>
+                        <tr class="status concluido">
+                            <td data-label="Título da Ocorrência">Portão da Garagem Travado</td>
+                            <td data-label="Localização">Entrada Principal</td>
+                            <td data-label="Status">Concluído</td>
+                            <td data-label="Data de Registro">23/07/2025</td>
+                            <td data-label="Responsável">Técnico Marcos</td>
+                            <td data-label="Ações"><button class="btn btn-details btn-sm">Ver Detalhes</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
 
-<footer>
-  © 2025 Reporte Já. Todos os direitos reservados.
-</footer>
+    <!-- Modal (mantido como está, mas será estilizado) -->
+    <div class="modal" id="modal">
+        <div class="modal-inner">
+            <h2>Detalhes da Ocorrência</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Accusantium earum alias maiores, eaque aliquid impedit, 
+                nisi illum, veritatis labore in totam officiis adipisci consequatur. 
+                Nulla, velit! Harum commodi vitae molestiae.
+            </p>
+            <button id="closeModal" class="btn-modal-close">Fechar</button>
+        </div>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="./scripts/filtro.js"></script>
-<script src="./scripts/Modals.js"></script>
+    <!-- Rodapé Fixo da Página -->
+    <footer class="page-footer">
+        © 2025 Reporte Já. Todos os direitos reservados.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./scripts/filtro.js"></script>
+    <script src="./scripts/Modals.js"></script> <!-- Este arquivo será atualizado -->
 </body>
 </html>
