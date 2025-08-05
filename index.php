@@ -8,7 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    // Prepare and execute
     $stmt = $conn->prepare("SELECT senha FROM usuarios WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -21,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($senha === $db_password) {
             $message = "Login successful";
             $toastClass = "bg-success";
-            // Start the session and redirect to the dashboard or home page
             session_start();
             $_SESSION['email'] = $email;
             header("Location: painel.html");
@@ -53,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="main-wrapper">
         <div class="welcome-section">
-            <img src="./assets/img/logo2.jfif" alt="Logo do sistema Reporte Já" class="logo-img">
+            <img src="./assets/img/logo.png" alt="Logo do sistema Reporte Já" class="logo-img">
             <p class="welcome-title">Bem-vindo(a) ao Reporte Já – Área Administrativa</p>
             <p class="welcome-description">Acesse sua conta para gerenciar as ocorrências de manutenção.</p>
         </div>
